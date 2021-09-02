@@ -88,6 +88,14 @@ const multiColumnChart = () => {
                 fill: {
                     opacity: component.get('columnChartModel.opacity'),
                 },
+
+                tooltip: {
+                    y: {
+                        formatter: function (value, {seriesIndex, dataPointIndex}) {
+                            return data[series[seriesIndex].name][dataPointIndex].extras.formatted || value;
+                        }
+                    }
+                }
             };
 
             const colors = component.get('columnChartModel.colors');
